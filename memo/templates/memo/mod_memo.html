@@ -1,0 +1,23 @@
+{% extends 'memo/base.html' %}
+
+{% block content %}
+
+  <form action="{% url 'memo:mod_memo' memo_id=memo.id %}" method="post">{% csrf_token %}
+    <table>
+    <tr>
+      <th>タイトル</th>
+      <td>{{ form.title }}</td>
+    </tr>
+    <tr>
+      <th>テキスト</th>
+      <td>{{ form.text }}</td>
+    </tr>
+    </table>
+    <button type="submit" class="btn">保存</button>
+  </form>
+
+  <div>
+    <a href="{% url 'memo:detail' memo_id=memo.id %}">戻る</a>
+  </div>
+
+{% endblock %}

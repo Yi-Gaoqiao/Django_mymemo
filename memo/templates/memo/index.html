@@ -1,0 +1,16 @@
+{% extends 'memo/base.html' %}
+
+{% block content %}
+
+  <a class="btn" href="{% url 'memo:add_memo' %}">新規メモ作成</a>
+
+  {% for memo in memos %}
+    <a href="{% url 'memo:detail' memo_id=memo.id %}" class="memo-title">
+      <div>
+        {{ memo }}
+        <span class="updated_date">{{ memo.updated_date }}</span>
+      </div>
+    </a>
+  {% endfor %}
+
+{% endblock %}
